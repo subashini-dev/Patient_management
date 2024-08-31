@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<div>
+  <h1 class="display-4"><%= @patient.name %></h1>
+  <table class="table table-success table-striped">
+  <tr>
+  <th>Age</th>
+  <th>Height</th>
+  <th>Weight</th>
+  <th>Gender</th>
+  </tr>
+  <tr>
+  <td><%= @patient.age %></td>
+  <td><%= @patient.height %></td>
+  <td><%= @patient.weight %></td>
+  <td><%= @patient.gender %></td>
+  </tr>
+  </table>
+
+</br>
+
+  <%= link_to "Edit",edit_patient_path(@patient),class: "btn btn-primary"%>|
+  
+  <%= link_to "Back", patients_path, class: "btn btn-primary" %>
+</div>

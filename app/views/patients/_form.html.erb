@@ -1,0 +1,40 @@
+<% if @patient.errors.any? %>
+
+<div class="alert alert-danger">
+  <%= @patient.errors.full_messages.first if @patient.errors.any? %>
+</div>
+<%end%>
+
+<%= form_with model: @patient do |form| %>
+    <div class="field form-group">
+    <%= form.label :name, style: "display: block"  %>
+    <%= form.text_field :name%>
+    </div>
+
+    <div cclass="field form-group">
+    <%= form.label :age, style: "display: block" %>
+    <%= form.text_field :age%>
+    </div>
+
+    <div class="field form-group">
+    <%= form.label :height, style: "display: block" %>
+    <%= form.text_field :height%>
+    </div>
+
+    <div class="field form-group">
+    <%= form.label :weight, style: "display: block"  %>
+    <%= form.text_field :weight%>
+    </div>
+
+    <div class="field form-group">
+    <%= form.label :gender, style: "display: block"  %>
+    <%= form.text_field :gender%>
+    </div>
+    <br>
+
+
+  <div class="form-group">
+    <%= form.submit "Submit",class: "btn btn-primary"%>
+  </div>
+  
+<% end %>

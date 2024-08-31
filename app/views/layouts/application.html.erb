@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PatientManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  
+  </head>
+
+  <body>
+      <div class="navbar">
+      
+      </div>
+
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <div class="col-md-4 navbar-brand">PatientManagement</div>
+        <div class="col-md-4 offset-md-4 navbar-brand">
+        <% if current_user %>
+          Hello <%= current_user&.email %></br>
+          Role: <%= current_user.role %></br>
+          <%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+        <% else %>
+          <p>You are not signed in</p>
+          <p>
+            <%= link_to "Login", new_user_session_path %>
+          </p>
+        <% end %>
+        </div>
+      </div>
+    </nav>
+    
+    <%= yield %>
+ 
+  </body>
+</html>
+
+
+
