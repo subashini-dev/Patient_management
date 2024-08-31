@@ -28,7 +28,7 @@
 
     <div class="field form-group">
     <%= form.label :gender, style: "display: block"  %>
-    <%= form.text_field :gender%>
+    <%= form.select :gender, options_for_select([['Male'],['Female']],form.object.gender), {include_blank: "Select the gender"} %>
     </div>
     <br>
 
